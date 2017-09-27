@@ -15,8 +15,8 @@ void IIC_Init(unsigned int desiredBaud)
    /* First, let's set a baudrate*/
 	if(desiredBaud == 150)
 	{
-	 I2C0SCLL = 200;
-	 I2C0SCLH = 200; /* WRONG values!!!!!!*/
+	 I2C0SCLL = 100;
+	 I2C0SCLH = 100;
 	}
 	else if(desiredBaud == 400)
 	{
@@ -166,7 +166,7 @@ void IIC_COMM_REQ(iic_comm_t* inputStruct)
 		{
 			if(startLoop == 1)
 			{
-				errorCause = Error_i2c_com_too_long;
+				errorCause |= Error_i2c_com_too_long;
 			}
 			break;
 		}

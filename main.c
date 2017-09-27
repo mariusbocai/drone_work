@@ -50,6 +50,7 @@ INIT_FUNC_ARRAY;
 void IRQ_Loop (void) __irq
 {
 	int i;
+	VICIntEnClr = 0x8000000;
 	CLOCK_VAR++;
 	i = T3IR;
 	T3IR = 8;
@@ -60,12 +61,13 @@ void IRQ_Loop (void) __irq
 	}
 	else
 	{
-		errorCause = Error_loop_time;
+		errorCause |= Error_loop_time;
 	}
 	if(initDone == 1) /*Only start a new loop if the INIT is done! Otherwise the IIC initializations might not have enough time*/
 	{
 		startLoop = 1;
 	}
+	VICIntEnable = 0x8000000;
 	VICVectAddr =0;
 } 
 
@@ -205,7 +207,7 @@ void IRQ_Capture (void) __irq
 	}
 	else
 	{
-		errorCause = Error_unnasigned_TCAP_interrupt;
+		errorCause |= Error_unnasigned_TCAP_interrupt;
 	}
 	VICIntEnable = 0x20;			//enable Timer1 interrupts
 	VICVectAddr =0;
@@ -307,15 +309,23 @@ void initInputs()
 	/*=== Init i2c (aka iic) ===*/
 	IIC_Init(400);
 	
-	/*=== GYRO INIT ===*/
-	IIC_COMM_REQ((iic_comm_t*)&GYRO_INIT_STRUCT_FIFO);
-	IIC_COMM_REQ((iic_comm_t*)&GYRO_INIT_STRUCT);
-	IIC_COMM_REQ((iic_comm_t*)&GYRO_INIT_READ_STRUCT);
-
+	/*=== First test the IIC communication with the sensors ===*/
+	IIC_COMM_REQ((iic_comm_t*)&GYRO_COM_TEST_STRUCT);
+	if(GYRO_COM_TEST_VAL == 0xD3)
+	{
+       	/*=== GYRO INIT ===*/
+		IIC_COMM_REQ((iic_comm_t*)&GYRO_INIT_STRUCT_FIFO);
+		IIC_COMM_REQ((iic_comm_t*)&GYRO_INIT_STRUCT);
+		IIC_COMM_REQ((iic_comm_t*)&GYRO_INIT_READ_STRUCT);
+	}
 
 	/*=== ACC INIT ===*/
-	IIC_COMM_REQ((iic_comm_t*)&ACC_FIFO_INIT_STRUCT);
-	IIC_COMM_REQ((iic_comm_t*)&ACC_INIT_STRUCT);
+	IIC_COMM_REQ((iic_comm_t*)&ACC_COM_TEST_STRUCT);
+	if(ACC_COM_TEST_VAL == 0xE5)
+	{
+		IIC_COMM_REQ((iic_comm_t*)&ACC_FIFO_INIT_STRUCT);
+		IIC_COMM_REQ((iic_comm_t*)&ACC_INIT_STRUCT);
+	}
 
 	/*=== MAG INIT ===*/
 	IIC_COMM_REQ((iic_comm_t*)&MAG_INIT_STRUCT);
@@ -410,7 +420,7 @@ void calculateInputs()
 			//check if pulse is too long or too short, make small adjustments to the pulse
 			if(channel[i].commandUs > 2200)							//SAFETY FEATURE 
 			{
-				errorCause = Error_too_long_input_pulse;
+				errorCause |= Error_too_long_input_pulse;
 			}
 			else if(channel[i].commandUs > 2000)
 			{
@@ -418,7 +428,7 @@ void calculateInputs()
 			}
 			if(channel[i].commandUs < 800)							//SAFETY FEATURE 
 			{
-				errorCause = Error_too_short_input_pulse;
+				errorCause |= Error_too_short_input_pulse;
 			}
 			else if(channel[i].commandUs < 1000)
 			{
