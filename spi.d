@@ -1,0 +1,11 @@
+.\spi.o: spi.c
+.\spi.o: LPC2103.H
+.\spi.o: config.h
+.\spi.o: hal.h
+.\spi.o: sensors_i2c.h
+.\spi.o: iic_com_driver.h
+.\spi.o: dio.h
+.\spi.o: spi.h
+.\spi.o: pid.h
+.\spi.o: output.h
+.\spi.o: uart.h

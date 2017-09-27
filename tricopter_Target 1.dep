@@ -1,0 +1,120 @@
+Dependencies for Project 'tricopter', Target 'Target 1': (DO NOT MODIFY !)
+F (.\Startup.s)(0x51B914EA)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g-I E:\Keil_v5\ARM\RV31\INC-I E:\Keil_v5\ARM\CMSIS\Include-I E:\Keil_v5\ARM\Inc\Philips--list .\startup.lst --xref -o .\startup.o --depend .\startup.d)
+F (.\declarations.h)(0x5513218E)()
+F (.\main.c)(0x57D6728D)(-c --cpu ARM7TDMI -D__EVAL -g -O0-I E:\Keil_v5\ARM\RV31\INC-I E:\Keil_v5\ARM\CMSIS\Include-I E:\Keil_v5\ARM\Inc\Philips-o .\main.o --omf_browse .\main.crf --depend .\main.d)
+I (E:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x53468094)
+I (LPC2103.H)(0x4C810452)
+I (declarations.h)(0x5513218E)
+I (iic_com_driver.h)(0x50225E8A)
+I (sensors_i2c.h)(0x54AC40DE)
+I (uart.h)(0x51B750F0)
+I (hal.h)(0x538791CC)
+I (config.h)(0x57D6811D)
+I (dio.h)(0x528BCDCA)
+I (spi.h)(0x529505CC)
+I (pid.h)(0x5524D882)
+I (output.h)(0x57D67242)
+F (.\STDIO.H)(0x40AD13A4)()
+F (.\iic_com_driver.c)(0x55F9E14E)(-c --cpu ARM7TDMI -D__EVAL -g -O0-I E:\Keil_v5\ARM\RV31\INC-I E:\Keil_v5\ARM\CMSIS\Include-I E:\Keil_v5\ARM\Inc\Philips-o .\iic_com_driver.o --omf_browse .\iic_com_driver.crf --depend .\iic_com_driver.d)
+I (iic_com_driver.h)(0x50225E8A)
+I (declarations.h)(0x5513218E)
+I (LPC2103.H)(0x4C810452)
+F (.\iic_com_driver.h)(0x50225E8A)()
+F (.\LPC2103.h)(0x4C810452)()
+F (.\sensors_i2c.c)(0x57D67547)(-c --cpu ARM7TDMI -D__EVAL -g -O0-I E:\Keil_v5\ARM\RV31\INC-I E:\Keil_v5\ARM\CMSIS\Include-I E:\Keil_v5\ARM\Inc\Philips-o .\sensors_i2c.o --omf_browse .\sensors_i2c.crf --depend .\sensors_i2c.d)
+I (config.h)(0x57D6811D)
+I (iic_com_driver.h)(0x50225E8A)
+I (sensors_i2c.h)(0x54AC40DE)
+I (hal.h)(0x538791CC)
+I (LPC2103.h)(0x4C810452)
+I (dio.h)(0x528BCDCA)
+I (spi.h)(0x529505CC)
+I (pid.h)(0x5524D882)
+I (output.h)(0x57D67242)
+I (uart.h)(0x51B750F0)
+F (.\sensors_i2c.h)(0x54AC40DE)()
+F (.\hal.h)(0x538791CC)()
+F (.\uart.c)(0x567EA4B8)(-c --cpu ARM7TDMI -D__EVAL -g -O0-I E:\Keil_v5\ARM\RV31\INC-I E:\Keil_v5\ARM\CMSIS\Include-I E:\Keil_v5\ARM\Inc\Philips-o .\uart.o --omf_browse .\uart.crf --depend .\uart.d)
+I (lpc2103.h)(0x4C810452)
+I (hal.h)(0x538791CC)
+I (config.h)(0x57D6811D)
+I (sensors_i2c.h)(0x54AC40DE)
+I (iic_com_driver.h)(0x50225E8A)
+I (dio.h)(0x528BCDCA)
+I (spi.h)(0x529505CC)
+I (pid.h)(0x5524D882)
+I (output.h)(0x57D67242)
+I (uart.h)(0x51B750F0)
+F (.\uart.h)(0x51B750F0)()
+F (.\config.h)(0x57D6811D)()
+F (.\algo.c)(0x57D674B2)(-c --cpu ARM7TDMI -D__EVAL -g -O0-I E:\Keil_v5\ARM\RV31\INC-I E:\Keil_v5\ARM\CMSIS\Include-I E:\Keil_v5\ARM\Inc\Philips-o .\algo.o --omf_browse .\algo.crf --depend .\algo.d)
+I (hal.h)(0x538791CC)
+I (config.h)(0x57D6811D)
+I (LPC2103.h)(0x4C810452)
+I (sensors_i2c.h)(0x54AC40DE)
+I (iic_com_driver.h)(0x50225E8A)
+I (dio.h)(0x528BCDCA)
+I (spi.h)(0x529505CC)
+I (pid.h)(0x5524D882)
+I (output.h)(0x57D67242)
+I (uart.h)(0x51B750F0)
+F (.\spi.c)(0x55F9E137)(-c --cpu ARM7TDMI -D__EVAL -g -O0-I E:\Keil_v5\ARM\RV31\INC-I E:\Keil_v5\ARM\CMSIS\Include-I E:\Keil_v5\ARM\Inc\Philips-o .\spi.o --omf_browse .\spi.crf --depend .\spi.d)
+I (LPC2103.H)(0x4C810452)
+I (config.h)(0x57D6811D)
+I (hal.h)(0x538791CC)
+I (sensors_i2c.h)(0x54AC40DE)
+I (iic_com_driver.h)(0x50225E8A)
+I (dio.h)(0x528BCDCA)
+I (spi.h)(0x529505CC)
+I (pid.h)(0x5524D882)
+I (output.h)(0x57D67242)
+I (uart.h)(0x51B750F0)
+F (.\spi.h)(0x529505CC)()
+F (.\pid.c)(0x565F53DA)(-c --cpu ARM7TDMI -D__EVAL -g -O0-I E:\Keil_v5\ARM\RV31\INC-I E:\Keil_v5\ARM\CMSIS\Include-I E:\Keil_v5\ARM\Inc\Philips-o .\pid.o --omf_browse .\pid.crf --depend .\pid.d)
+I (pid.h)(0x5524D882)
+I (config.h)(0x57D6811D)
+I (uart.h)(0x51B750F0)
+I (hal.h)(0x538791CC)
+I (LPC2103.h)(0x4C810452)
+I (sensors_i2c.h)(0x54AC40DE)
+I (iic_com_driver.h)(0x50225E8A)
+I (dio.h)(0x528BCDCA)
+I (spi.h)(0x529505CC)
+I (output.h)(0x57D67242)
+F (.\pid.h)(0x5524D882)()
+F (.\dio.c)(0x55F9E127)(-c --cpu ARM7TDMI -D__EVAL -g -O0-I E:\Keil_v5\ARM\RV31\INC-I E:\Keil_v5\ARM\CMSIS\Include-I E:\Keil_v5\ARM\Inc\Philips-o .\dio.o --omf_browse .\dio.crf --depend .\dio.d)
+I (LPC2103.H)(0x4C810452)
+F (.\dio.h)(0x528BCDCA)()
+F (.\nRF24L01_driver.c)(0x55F9E10F)(-c --cpu ARM7TDMI -D__EVAL -g -O0-I E:\Keil_v5\ARM\RV31\INC-I E:\Keil_v5\ARM\CMSIS\Include-I E:\Keil_v5\ARM\Inc\Philips-o .\nrf24l01_driver.o --omf_browse .\nrf24l01_driver.crf --depend .\nrf24l01_driver.d)
+I (LPC2103.H)(0x4C810452)
+I (config.h)(0x57D6811D)
+I (hal.h)(0x538791CC)
+I (sensors_i2c.h)(0x54AC40DE)
+I (iic_com_driver.h)(0x50225E8A)
+I (dio.h)(0x528BCDCA)
+I (spi.h)(0x529505CC)
+I (pid.h)(0x5524D882)
+I (output.h)(0x57D67242)
+I (uart.h)(0x51B750F0)
+F (.\output.c)(0x57D67602)(-c --cpu ARM7TDMI -D__EVAL -g -O0-I E:\Keil_v5\ARM\RV31\INC-I E:\Keil_v5\ARM\CMSIS\Include-I E:\Keil_v5\ARM\Inc\Philips-o .\output.o --omf_browse .\output.crf --depend .\output.d)
+I (hal.h)(0x538791CC)
+I (config.h)(0x57D6811D)
+I (LPC2103.h)(0x4C810452)
+I (sensors_i2c.h)(0x54AC40DE)
+I (iic_com_driver.h)(0x50225E8A)
+I (dio.h)(0x528BCDCA)
+I (spi.h)(0x529505CC)
+I (pid.h)(0x5524D882)
+I (output.h)(0x57D67242)
+I (uart.h)(0x51B750F0)
+F (.\led.c)(0x53B1C164)(-c --cpu ARM7TDMI -D__EVAL -g -O0-I E:\Keil_v5\ARM\RV31\INC-I E:\Keil_v5\ARM\CMSIS\Include-I E:\Keil_v5\ARM\Inc\Philips-o .\led.o --omf_browse .\led.crf --depend .\led.d)
+I (hal.h)(0x538791CC)
+I (config.h)(0x57D6811D)
+I (LPC2103.h)(0x4C810452)
+I (sensors_i2c.h)(0x54AC40DE)
+I (iic_com_driver.h)(0x50225E8A)
+I (dio.h)(0x528BCDCA)
+I (spi.h)(0x529505CC)
+I (pid.h)(0x5524D882)
+I (output.h)(0x57D67242)
+I (uart.h)(0x51B750F0)

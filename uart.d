@@ -1,0 +1,11 @@
+.\uart.o: uart.c
+.\uart.o: lpc2103.h
+.\uart.o: hal.h
+.\uart.o: config.h
+.\uart.o: sensors_i2c.h
+.\uart.o: iic_com_driver.h
+.\uart.o: dio.h
+.\uart.o: spi.h
+.\uart.o: pid.h
+.\uart.o: output.h
+.\uart.o: uart.h

@@ -1,0 +1,13 @@
+.\main.o: main.c
+.\main.o: E:\Keil_v5\ARM\ARMCC\bin\..\include\stdio.h
+.\main.o: LPC2103.H
+.\main.o: declarations.h
+.\main.o: iic_com_driver.h
+.\main.o: sensors_i2c.h
+.\main.o: uart.h
+.\main.o: hal.h
+.\main.o: config.h
+.\main.o: dio.h
+.\main.o: spi.h
+.\main.o: pid.h
+.\main.o: output.h

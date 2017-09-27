@@ -1,0 +1,11 @@
+.\sensors_i2c.o: sensors_i2c.c
+.\sensors_i2c.o: config.h
+.\sensors_i2c.o: iic_com_driver.h
+.\sensors_i2c.o: sensors_i2c.h
+.\sensors_i2c.o: hal.h
+.\sensors_i2c.o: LPC2103.h
+.\sensors_i2c.o: dio.h
+.\sensors_i2c.o: spi.h
+.\sensors_i2c.o: pid.h
+.\sensors_i2c.o: output.h
+.\sensors_i2c.o: uart.h

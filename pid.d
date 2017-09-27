@@ -1,0 +1,11 @@
+.\pid.o: pid.c
+.\pid.o: pid.h
+.\pid.o: config.h
+.\pid.o: uart.h
+.\pid.o: hal.h
+.\pid.o: LPC2103.h
+.\pid.o: sensors_i2c.h
+.\pid.o: iic_com_driver.h
+.\pid.o: dio.h
+.\pid.o: spi.h
+.\pid.o: output.h

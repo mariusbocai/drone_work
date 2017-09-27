@@ -1,0 +1,11 @@
+.\nrf24l01_driver.o: nRF24L01_driver.c
+.\nrf24l01_driver.o: LPC2103.H
+.\nrf24l01_driver.o: config.h
+.\nrf24l01_driver.o: hal.h
+.\nrf24l01_driver.o: sensors_i2c.h
+.\nrf24l01_driver.o: iic_com_driver.h
+.\nrf24l01_driver.o: dio.h
+.\nrf24l01_driver.o: spi.h
+.\nrf24l01_driver.o: pid.h
+.\nrf24l01_driver.o: output.h
+.\nrf24l01_driver.o: uart.h

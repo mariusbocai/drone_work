@@ -1,0 +1,11 @@
+.\led.o: led.c
+.\led.o: hal.h
+.\led.o: config.h
+.\led.o: LPC2103.h
+.\led.o: sensors_i2c.h
+.\led.o: iic_com_driver.h
+.\led.o: dio.h
+.\led.o: spi.h
+.\led.o: pid.h
+.\led.o: output.h
+.\led.o: uart.h

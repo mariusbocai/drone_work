@@ -1,0 +1,17 @@
+--cpu ARM7TDMI
+".\startup.o"
+".\main.o"
+".\iic_com_driver.o"
+".\sensors_i2c.o"
+".\uart.o"
+".\algo.o"
+".\spi.o"
+".\pid.o"
+".\dio.o"
+".\nrf24l01_driver.o"
+".\output.o"
+".\led.o"
+--strict --scatter ".\tricopter.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\tricopter.map" -o .\tricopter.axf

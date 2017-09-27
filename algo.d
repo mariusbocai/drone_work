@@ -1,0 +1,11 @@
+.\algo.o: algo.c
+.\algo.o: hal.h
+.\algo.o: config.h
+.\algo.o: LPC2103.h
+.\algo.o: sensors_i2c.h
+.\algo.o: iic_com_driver.h
+.\algo.o: dio.h
+.\algo.o: spi.h
+.\algo.o: pid.h
+.\algo.o: output.h
+.\algo.o: uart.h
