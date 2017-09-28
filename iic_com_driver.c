@@ -166,14 +166,31 @@ void IIC_COMM_REQ(iic_comm_t* inputStruct)
 		{
 			if(startLoop == 1)
 			{
+				IIC_STRUCT.IIC_FAIL_ID = IIC_STRUCT.IIC_SLAVE_REG;
 				errorCause |= Error_i2c_com_too_long;
+			}
+			if (STATE_MACHINE.IIC_STATE==ComFailed)
+			{
+			   IIC_STRUCT.IIC_FAIL_ID = IIC_STRUCT.IIC_SLAVE_REG;
+			   errorCause |= Error_i2c_failed;
+			}
+			if((STATE_MACHINE.IIC_STATE==ComFailed) || (startLoop == 1))
+			{
+			   if(IIC_STRUCT.IIC_FAIL_ID == 0x69)
+			   {
+			      errorCause |= Error_i2c_com_gyro;
+			   }
+			   if(IIC_STRUCT.IIC_FAIL_ID == 0x53)
+			   {
+			      errorCause |= Error_i2c_com_acc;
+			   }
 			}
 			break;
 		}
 	 }
 	 if(startLoop == 1)
 	 {
-	  startLoop = 0;
+	  startLoop = 0; /*Not sure if this is a good idea*/
 	 }
 #endif
 	I2C0CONCLR = EnableBitMask;

@@ -17,6 +17,7 @@
 #define Error_i2c_com_too_long 0x20
 #define Error_i2c_com_gyro 0x40
 #define Error_i2c_com_acc 0x80
+#define Error_i2c_failed 0x100
 
 typedef struct
 {

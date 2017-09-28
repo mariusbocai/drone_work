@@ -30,6 +30,7 @@ typedef struct iic_comm_tag
    unsigned char* IIC_DATA_PNT; /* pointer to data */
    unsigned char IIC_MULTI_MODE; /*set this var to N if N bytes need to be transmitted*/
    unsigned char IIC_RECEIVE_ORDERED; 
+   unsigned char IIC_FAIL_ID; /*If comm fails, fill this variable with the failed class*/
 } iic_comm_t;
 
 typedef struct iic_com_sm_tag
