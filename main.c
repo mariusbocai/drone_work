@@ -50,7 +50,7 @@ INIT_FUNC_ARRAY;
 void IRQ_Loop (void) __irq
 {
 	int i;
-	VICIntEnClr = 0x8000000;
+	VICIntEnClr = 0x8000220;
 	CLOCK_VAR++;
 	i = T3IR;
 	T3IR = 8;
@@ -67,7 +67,7 @@ void IRQ_Loop (void) __irq
 	{
 		startLoop = 1;
 	}
-	VICIntEnable = 0x8000000;
+	VICIntEnable = 0x8000220;
 	VICVectAddr =0;
 } 
 
@@ -75,7 +75,7 @@ void IRQ_Loop (void) __irq
 void IRQ_Capture (void) __irq 
 {
 	int intSource = 0;
-	VICIntEnClr = 0x20;			//disable Timer1 interrupts by writing 1 to the Timer1 interrupt slot
+	VICIntEnClr = 0x8000220;			//disable Timer1 interrupts by writing 1 to the Timer1 interrupt slot
 	intSource = T1IR;			//read the IR register to see who caused the interrupt
 	if((intSource&16)==16)
 	{
@@ -209,7 +209,7 @@ void IRQ_Capture (void) __irq
 	{
 		errorCause |= Error_unnasigned_TCAP_interrupt;
 	}
-	VICIntEnable = 0x20;			//enable Timer1 interrupts
+	VICIntEnable = 0x8000220;			//enable Timer1 interrupts
 	VICVectAddr =0;
 }
 
@@ -307,7 +307,7 @@ void initInputs()
 #endif
 	
 	/*=== Init i2c (aka iic) ===*/
-	IIC_Init(400);
+	IIC_Init(150);
 	
 	/*=== First test the IIC communication with the sensors ===*/
 	IIC_COMM_REQ((iic_comm_t*)&GYRO_COM_TEST_STRUCT);

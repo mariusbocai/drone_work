@@ -9,6 +9,8 @@ static iic_comm_t IIC_STRUCT;
 volatile static iic_com_sm_t STATE_MACHINE;
 unsigned char IIC_RECEIVE_CONFIRMED;
 unsigned char IIC_COM_RETURN_VAL;
+unsigned char LAST_ERR_LOOP;
+extern unsigned int CLOCK_VAR;
 
 void IIC_Init(unsigned int desiredBaud)
 {
@@ -30,6 +32,8 @@ void IIC_Init(unsigned int desiredBaud)
 void ISR_IIC_COMM(void) __irq
 {
    unsigned int STATUS_REG;
+	
+	 VICIntEnClr = 0x8000220;
    /*read the status register*/
    STATUS_REG = I2C0STAT;
 
@@ -38,7 +42,7 @@ void ISR_IIC_COMM(void) __irq
       case 0x08:     /* A start condition has been transmitted */
       {
 	  	I2C0DAT = AddWtoSlaveAddress;
-		I2C0CONCLR = StartBitMask;
+		  I2C0CONCLR = StartBitMask;
         STATE_MACHINE.IIC_STATE = ComInProgress;
         break;
       }
@@ -87,7 +91,7 @@ void ISR_IIC_COMM(void) __irq
       }
       case 0x30:     /* Data byte in DATA register has been transmitted, NACK received */
       {
-				 //I2C0CONCLR = StopBitMask;
+				 //I2C0CONCLR = StopBitMask;////////
 				 STATE_MACHINE.IIC_STATE = ComFailed;
          break;
       }
@@ -126,6 +130,7 @@ void ISR_IIC_COMM(void) __irq
 	  {
 			*IIC_STRUCT.IIC_DATA_PNT++ = I2C0DAT;
 	  	STATE_MACHINE.IIC_STATE = ComSuccesful;
+			//I2C0CONSET = StopBitMask;//////////
 		  break;
 	  }
 	  default:
@@ -135,11 +140,13 @@ void ISR_IIC_COMM(void) __irq
 	  }
    }
    I2C0CONCLR = ClearIntBitMask;
+	 VICIntEnable = 0x8000220;
    VICVectAddr = 0;
 }
 
 void IIC_COMM_REQ(iic_comm_t* inputStruct)
 {
+	int i;
 	IIC_STRUCT.IIC_OP = inputStruct->IIC_OP;
 	IIC_STRUCT.IIC_SLAVE_ADDR = inputStruct->IIC_SLAVE_ADDR;
 	IIC_STRUCT.IIC_SLAVE_REG = inputStruct->IIC_SLAVE_REG;
@@ -159,6 +166,13 @@ void IIC_COMM_REQ(iic_comm_t* inputStruct)
 	 /* Change state */
 	 STATE_MACHINE.IIC_STATE = ComPending;
 	 /* Block function until comm is ready */
+	 do {
+		 i++;
+	 } while (i<100);
+	 if(STATE_MACHINE.IIC_STATE == ComInProgress)
+	 {
+		 i--;
+	 }
 #if !SIM_DEBUG
 	 for(;;)
 	 {
@@ -168,6 +182,7 @@ void IIC_COMM_REQ(iic_comm_t* inputStruct)
 			{
 				IIC_STRUCT.IIC_FAIL_ID = IIC_STRUCT.IIC_SLAVE_REG;
 				errorCause |= Error_i2c_com_too_long;
+        LAST_ERR_LOOP = CLOCK_VAR;
 			}
 			if (STATE_MACHINE.IIC_STATE==ComFailed)
 			{
