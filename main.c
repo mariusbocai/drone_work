@@ -8,7 +8,7 @@
 #include "spi.h"
 #include "pid.h"
 
-/*Last changed: 19/11/2013*/
+/*Using Git versioning system*/
 //Remote Futaba T7CP:
 // Channel1 = Aileron
 // Channel2 = Elevator
