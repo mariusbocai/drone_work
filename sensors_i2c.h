@@ -9,6 +9,10 @@
 #define GyroMaskZdataAvail 0x4
 
 /*=== Initialization struct of the Gyroscope ===*/
+extern unsigned char GYRO_COM_TEST_VAL;
+extern const iic_comm_t GYRO_COM_TEST_STRUCT;
+extern unsigned char ACC_COM_TEST_VAL;
+extern const iic_comm_t ACC_COM_TEST_STRUCT;
 extern unsigned char GYRO_INIT_VAL[];
 extern const iic_comm_t GYRO_INIT_STRUCT;
 extern const iic_comm_t GYRO_READ_STRUCT;

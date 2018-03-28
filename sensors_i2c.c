@@ -25,6 +25,10 @@ unsigned long saved_clock[200];
 /*===============================================================*/
 /*================== GYRO =======================================*/
 /*===============================================================*/
+/*=== Test the I2C communication ===*/
+unsigned char GYRO_COM_TEST_VAL = 0x0;
+const iic_comm_t GYRO_COM_TEST_STRUCT = {MasterReceive, 0x69, 0x0F, &GYRO_COM_TEST_VAL ,1, 0};
+
 /*=== Initialization struct of the Gyroscope ===*/
 unsigned char GYRO_INIT_VAL[] = {0x4F, 0x21, 0x0, 0x0, 0x0};//0x53
 const iic_comm_t GYRO_INIT_STRUCT = {MasterTransmit, 0x69, 0xA0, GYRO_INIT_VAL ,5, 0};
@@ -42,6 +46,10 @@ gyro_angular_data_t GYRO_DATA_STRUCT;
 /*===============================================================*/
 /*================== ACCELERATION================================*/
 /*===============================================================*/
+/*=== Test the I2C communication ===*/
+unsigned char ACC_COM_TEST_VAL = 0x0;
+const iic_comm_t ACC_COM_TEST_STRUCT = {MasterReceive, 0x53, 0x0, &ACC_COM_TEST_VAL ,1, 0};
+
 //unsigned char ACC_INIT_VAL[] = {0xB, 0x8, 0x0};
 unsigned char ACC_INIT_VAL = 0x8;
 const iic_comm_t ACC_INIT_STRUCT = {MasterTransmit, 0x53, 0x2D, &ACC_INIT_VAL ,1, 0};
